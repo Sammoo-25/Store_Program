@@ -69,11 +69,20 @@ class Store:
             raise ValueError
 
 
-    def sort_products(self):
+    def sort_products_by_quantity(self):
         sorted_products = dict(sorted(self.products.items(), key=lambda x: x[1]['quantity']))
         self.data.write_products(sorted_products, self.fname)
         print("Product are sorted by quantity !!!")
 
+    def sort_products_by_purchase_price(self):
+        sorted_products = dict(sorted(self.products.items(), key=lambda x: x[1]['purchase_price']))
+        self.data.write_products(sorted_products, self.fname)
+        print("Product are sorted by purchase price !!!")
+
+    def sort_products_by_name(self):
+        sorted_products = dict(sorted(self.products.items(), key=lambda x: x[0]))
+        self.data.write_products(sorted_products, self.fname)
+        print("Product are sorted by name !!!")
 
     def display_stock_balance(self):
         for k, v in self.products.items():

@@ -26,6 +26,20 @@ if __name__ == "__main__":
         elif action == 'output':
             st.display_stock_balance()
         elif action == 'sort':
-            st.sort_products()
+            action1 = input(f"Filter products by Quantity, Price, Name, exit: ")
+            while True:
+                if action1 == 'exit':
+                    break
+                elif action1 == 'Quantity':
+                    st.sort_products_by_quantity()
+                    break
+                elif action1 == "Price":
+                    st.sort_products_by_purchase_price()
+                    break
+                elif action1 == "Name":
+                    st.sort_products_by_name()
+                    break
+                else:
+                    print("Invalid action. Please try again.")
         else:
             print("Invalid action. Please try again.")
